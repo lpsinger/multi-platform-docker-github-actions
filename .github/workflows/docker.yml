@@ -29,8 +29,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       - name: Install and start Docker
-        run: |
-          brew install colima docker qemu
-          colima start --vm-type=qemu
+        uses: douglascamata/setup-docker-macos-action@f2b307ddc57e8b9d3f9761f3cafa8883b2cdffd4  # v1-alpha.16
       - name: Run a Docker container
         run: docker run --rm -t hello-world
