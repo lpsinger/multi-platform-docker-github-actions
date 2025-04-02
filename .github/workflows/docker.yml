@@ -29,6 +29,11 @@ jobs:
   windows-latest:
     runs-on: windows-latest
     steps:
+      - name: Setup WSL2
+        uses: actions/setup-wsl2@692b2bce6c4b62589ec7907b3831938ca16ccbd3
+        with:
+          distribution: ubuntu
+          version: 2
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       # - name: Install Docker
