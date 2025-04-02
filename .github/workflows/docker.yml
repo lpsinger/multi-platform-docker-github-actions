@@ -35,4 +35,4 @@ jobs:
       - name: Install Docker
         run: C:\\Program\ Files\\Docker\\Docker\\DockerCli.exe -SwitchLinuxEngine
       - name: Run a Docker container
-        run: docker run --rm -t hello-world
+        run: docker run --rm -t --platform linux/amd64 hello-world
