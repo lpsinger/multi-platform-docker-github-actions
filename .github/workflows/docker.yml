@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+      - name: Install Docker
+        run: choco install podman-desktop
       - name: Run a Docker container
         run: docker run --rm -t --platform linux hello-world
   macos-latest:
@@ -26,5 +28,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+      - name: Install Docker
+        run: brew install docker podman
       - name: Run a Docker container
         run: docker run --rm -t hello-world
