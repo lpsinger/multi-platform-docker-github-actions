@@ -31,6 +31,6 @@ jobs:
       - name: Install and start Docker
         run: |
           brew install colima docker qemu
-          colima start
+          colima start --vm-type=qemu
       - name: Run a Docker container
         run: docker run --rm -t hello-world
