@@ -29,14 +29,12 @@ jobs:
   windows-latest:
     runs-on: windows-latest
     steps:
-      - name: Setup WSL2
-        uses: actions/setup-wsl2@692b2bce6c4b62589ec7907b3831938ca16ccbd3
-        with:
-          distribution: ubuntu
-          version: 2
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Setup WSL2
+        uses: actions/setup-wsl2@692b2bce6c4b62589ec7907b3831938ca16ccbd3
       # - name: Install Docker
       #   run: C:/Program Files/Docker/Docker/DockerCli.exe -SwitchLinuxEngine
       - name: Run a Docker container
-        run: wsl docker run --rm -t --platform linux/amd64 hello-world
+        shell: wsl-run {0}
+        run: docker run --rm -t --platform linux/amd64 hello-world
