@@ -22,7 +22,7 @@ jobs:
       - name: Install Docker
         run: choco install podman-desktop
       - name: Run a Docker container
-        run: docker run --rm -t --platform linux/amd64 hello-world
+        run: docker run --rm -t --platform linux/amd64/v8 hello-world
   macos-13:
     runs-on: macos-13
     steps:
