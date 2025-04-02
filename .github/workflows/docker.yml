@@ -31,7 +31,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Install Docker
+      - name: Install Docker if not present
+        run: |
+          if (!(Test-Path "C:\Program Files\Docker\Docker\DockerCli.exe")) {
+            Invoke-WebRequest -Uri "https://download.docker.com/win/stable/Docker%20Desktop%20Installer.exe" -OutFile "DockerDesktopInstaller.exe"
+            Start-Process -FilePath "DockerDesktopInstaller.exe" -ArgumentList "/install", "/quiet" -NoNewWindow -Wait
+          }
+      - name: Switch Docker to Linux containers
         run: |
           Start-Process -FilePath "C:\Program Files\Docker\Docker\DockerCli.exe" -ArgumentList "-SwitchLinuxEngine" -NoNewWindow -Wait
       - name: Run a Docker container
