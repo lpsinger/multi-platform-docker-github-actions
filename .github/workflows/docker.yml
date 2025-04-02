@@ -35,4 +35,3 @@ jobs:
       #   run: C:/Program Files/Docker/Docker/DockerCli.exe -SwitchLinuxEngine
       - name: Run a Docker container
         run: wsl docker run --rm -t --platform linux/amd64 hello-world
-        shell: powershell
