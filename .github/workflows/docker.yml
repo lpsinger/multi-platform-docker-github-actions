@@ -28,11 +28,9 @@ jobs:
   #       run: docker run --rm -t hello-world
 
   windows-latest:
-    runs-on: windows-latest
+    runs-on: windows-2025
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
-      - name: Install Docker
-        run: C:\\Program\ Files\\Docker\\Docker\\DockerCli.exe -SwitchLinuxEngine
       - name: Run a Docker container
         run: docker run --rm -t --platform linux/amd64 hello-world
