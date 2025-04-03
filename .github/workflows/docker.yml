@@ -32,6 +32,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+      - name: Which docker?
+        run: which docker
+      - name: Select docker engine
+        run: /c/Program\ Files/Docker/Docker/DockerCli.exe -SwitchLinuxEngine
       - name: Docker version
         run: docker version
       - name: Run a Docker container
