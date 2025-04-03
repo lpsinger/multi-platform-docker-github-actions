@@ -35,8 +35,9 @@ jobs:
       - name: Which docker?
         run: which docker
       - name: Select docker engine
-        shell: pwsh
-        run: \\c\\Program\ Files\\Docker\\Docker\\DockerCli.exe -SwitchDaemon
+        run: |
+          cd /c/Program\ Files/Docker/Docker
+          ./DockerCli.exe -SwitchDaemon
       - name: Docker version
         run: docker version
       - name: Run a Docker container
