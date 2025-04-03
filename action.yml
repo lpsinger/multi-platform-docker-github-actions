@@ -1,0 +1,21 @@
+name: "Set up Docker"
+description: "Set up Docker on Linux, macOS, or Windows. On macOS and Windows, use Podman for running containers."
+runs:
+  using: composite
+  steps:
+    - name: Install Podman
+      if: runner.os == 'Windows'
+      shell: bash
+      run: |
+        net stop docker
+        choco install podman-cli
+        podman machine init
+        podman machine start
+    - name: Install Podman
+      if: runner.os == 'macOS'
+      shell: bash
+      run: |
+        brew install docker podman
+        sudo podman-mac-helper install
+        podman machine init
+        podman machine start
