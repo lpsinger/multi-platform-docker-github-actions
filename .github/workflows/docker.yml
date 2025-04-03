@@ -39,7 +39,7 @@ jobs:
           ls "c:\\Program Files"
       - name: Select docker engine
         run: |
-          "c:\\Program Files\\Docker\\Docker\\DockerCli.exe" -SwitchDaemon
+          ls "c:\\Windows\\system32"
       - name: Docker version
         run: docker version
       - name: Run a Docker container
