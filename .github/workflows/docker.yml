@@ -39,7 +39,5 @@ jobs:
           choco install podman-cli
           podman machine init
           podman machine start
-      - name: Docker version
-        run: docker version
       - name: Run a Docker container
         run: docker run --rm -t --platform linux/amd64 hello-world
