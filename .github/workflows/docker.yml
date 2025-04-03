@@ -36,7 +36,7 @@ jobs:
         run: which docker
       - name: Select docker engine
         run: |
-          cd /c/Program\ Files/Docker/Docker
+          cd /c/Program\\ Files/Docker/Docker
           ./DockerCli.exe -SwitchDaemon
       - name: Docker version
         run: docker version
