@@ -36,7 +36,7 @@ jobs:
         run: net stop docker
       - name: Install podman
         run: |
-          choco install podman-desktop podman-cli
+          choco install podman-cli
           podman machine init
           podman machine start
       - name: Docker version
