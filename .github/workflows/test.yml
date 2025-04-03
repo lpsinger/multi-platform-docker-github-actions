@@ -26,5 +26,10 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
       - name: Set up Docker
         uses: ./
-      - name: Run a Docker container
+      - name: Run Docker hello-world
         run: docker run --rm --platform linux -t hello-world
+      - name: Run Docker httpd
+        run: |
+          docker run --name webserver --rm -p 8080:80 -d httpd
+          curl --retry 5 --retry-connrefused http://127.0.0.1:8080/
+          docker stop webserver
